@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %} Home {% endblock %}
+
+
+{% block stylesheet %}
+        <link rel="stylesheet" href="static/user.css" type="text/css">
+{% endblock %}
+
+{% block content %} 
+
+{% if user.organiser %}
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>NOTIFICATION :</strong> You have been appointed organisor <p>
+</div>
+{% endif %}
+
+{% for event in user.events %}
+{% if event.capacity <= 4 %}
+  <div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    <strong>NOTIFICATION :</strong> Your {{ event.name }} event has neared capacity, click here to view <a href="/myEvents">events</a> <p>
+  </div>
+{% endif %}
+{% endfor %}
+
+    <div class="page-section" id="first-section">
+        <div class="welcome" id="welcome-text">
+          <div class="welcome-text-divs" id="welcome-user">
+            Welcome, {{ user.name }}
+          </div>
+          <div class="welcome-text-divs" id="links">
+            <div class="x" id="button-container">
+              <button id="browse-events" class="button-52" role="button"> SCROLL TO BROWSE <span class="arrow">&#187;</span> </button>
+            </div>
+            <div class="x">
+                <p>Join over 160,283 users using the <u>worlds leading event</u> organisation tool. </p>
+            </div>
+            <div class="x">
+
+            </div>
+          </div>
+        </div>
+        <div class="welcome" id="welcome-images"> 
+           <div class="welcome-cards" id="left-welcome">
+              <div class="left">
+                 <section class="cards-wrapper3">
+
+                  <div class="card-grid-space">
+                      <a class="card3" href="#" style="--bg-img: url('/static/users.PNG');">
+                      </a>
+                    </div>
+                    </section>
+
+                </div>
+              <div class="left">
+                    <section class="cards-wrapper4">
+                  <div class="card-grid-space">
+                      <a class="card4" href="#" style="--bg-img: url('/static/tickets.PNG');">
+             
+                      </a>
+                    </div>
+                    </section>
+
+              </div>
+          </div>
+          <div class="welcome-cards" id="right-welcome">
+            <div class="right" id="container1">
+
+                <section class="cards-wrapper">
+
+                  <div class="card-grid-space">
+                    <a class="card" href="#" style="--bg-img: url(https://www.nice.org.uk/Media/Default/News/Events/Collaboration%205.jpg)">
+                      <div>
+                        <h1>Conference Event</h1>
+                        <p>Practise your Presentation and Management skills, with the worlds leading professors...</p>
+                        <div class="date">6 Oct 2017</div>
+                        <div class="tags">
+                          <div class="tag">EDIT</div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+                </section>
+            </div>
+            <div class="right" id="container2">
+               <section class="cards-wrapper2">
+
+                  <div class="card-grid-space">
+                    <a class="card2" href="#" style="--bg-img: url('/static/graphs.PNG');">
+                      <div>
+                        <p style="font-size: 30px;">View My Tickets</p>
+                      </div>
+                    </a>
+                  </div>
+
+                </section>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    <div id="third-section" >
+        <p  class="browse-events" >Browse Upcoming Events  <span class="arrow">&#187;</span> </p>
+    </div>
+    
+    <div class="event-container" id="browse">
+            
+            {% if events %}
+            {% for event in events %}
+              <div class="item">
+                   <section class="event-wrapper">
+                        <div class="card-grid-space">
+                          <a class="event" href="/book" style="--bg-img: url({{event.image}})">
+                            <div>
+                              <h1 style="color: white;"> {{ event.name }}</h1>
+                              <p class="text" >{{ event.data }}</p>
+                                {% if event.capacity == 0 %}
+                                    <p class="text" > Fully Booked! </p>
+                                {% elif event.capacity <= 4 %}
+                                    <p class="text" style="color: red;" > Only {{event.capacity}} left! </p>
+                                {% else %}
+                                    <p class="text" > Event Places : {{ event.capacity }} </p>
+                                {% endif %}
+                              <div class="date"> {{ event.date }} </div>
+                              <div class="tags">
+                                <div class="tag">BOOK</div>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                      </section>
+              </div>  
+              {% endfor %}
+              {% else %}
+                  <div class="item" id="empty-list">
+                    <h1>Uh Oh! No Events To Show </h1>
+                    <p> Register as an Organisor to start creating Events... </p>
+                  </div>
+              {% endif %}
+          
+    </div>
+
+{% endblock %}
+

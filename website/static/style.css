@@ -1,0 +1,141 @@
+body {
+  margin-top: 100px;
+  background: #001419;
+  color: white;
+  font-family: 'Manrope', sans-serif;
+}
+
+page {
+  margin-top: 60px;
+  color: white;
+  font-size: manrope sans-serif;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 23px; 
+    width: 100%;
+    z-index: 999;
+    background-color: #001419;
+    color: #fff;
+    font-size: 16px;
+    height: 60px;
+}
+  
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .nav-left {
+    margin-left: 100px;
+  }
+  
+  .nav-right {
+    margin-right: 100px;
+  }
+  
+  .nav-title {
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 10px;
+  }
+
+  .tor {
+    color: #42E26F;
+  }
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+  }
+  
+  li {
+    margin: 0 10px;
+    position: relative;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #fff;
+    padding: 0 8px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom-color 0.9s ease;
+  }
+  
+  a:hover,
+  a.active {
+    border-bottom-color: #42E26F;
+    color: #42E26F;
+    transition: 0.9s; 
+  }
+  
+  .last-element {
+    border: 1px solid #fff;
+    border-radius: 16px;
+    padding: 6px 16px;
+  }
+  
+  .last-element:hover {
+    background-color: #42E26F;
+    border: 1px solid #42E26F;
+    color: #000;
+    transition: 0.8s;
+  }
+  
+  
+  @keyframes neon {
+    from {
+      box-shadow: 0 0 5px #42E26F, 0 0 10px #42E26F, 0 0 20px #42E26F;
+    }
+    to {
+      box-shadow: 0 0 2px #42E26F, 0 0 4px #42E26F, 0 0 8px #42E26F;
+    }
+  }
+  
+  .error {
+    height: 30px;
+    margin-top: 10px;
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+  }
+
+  .success {
+    height: 30px;
+    margin-top: 10px;
+    padding: 20px;
+    background-color: #04aa6d;
+    color: white;
+  }
+  
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover {
+    color: black;
+  }
+
+  .intro {
+    font-size: 60px;
+    font-weight: 20px;
+  }
+
