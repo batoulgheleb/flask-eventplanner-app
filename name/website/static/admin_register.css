@@ -1,0 +1,13 @@
+
+
+.outer-div {
+    padding-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+.second-div {
+    height: 720px;
+    background-color: #ccc;
+}

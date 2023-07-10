@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %} {% endblock %}
+
+{% block stylesheet %}
+            <link rel="stylesheet" href="static/admin_register.css" type="text/css">
+            <link rel="stylesheet" href="static/login.css" type="text/css">
+{% endblock %}
+
+{% block content %}
+
+    <div class="outer-div" >
+        <div class="first-div">
+            <img src="https://res.cloudinary.com/dpcbzfiye/image/upload/w_1080,c_fit,dpr_auto,f_auto,q_auto,fl_progressive/v1639057071/hm73iljrmdlxibsef7w7.jpg" />
+        </div>
+        <div class="second-div">
+            <div class="page-section" id="second-section">
+       
+       
+                <div class="container" >
+                  <h1>Admin Login</h1>
+                  <form method="POST">
+                      <!-- for to register as an Administrator with code = Dc5_G1gz -->
+                        <form action="#" method="post">
+                            <br><br>
+                            <label for "code"> Enter Administrator Code : </label>
+                            <input type="password" id="code" name="code" placeholder="Enter Code" /><br><br>
+
+                            <input type="submit" value="Submit" />
+                        </form>
+                </div>
+          </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
+

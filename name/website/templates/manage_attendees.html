@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %} {% endblock %}
+
+
+{% block stylesheet %}
+      
+        <link rel="stylesheet" href="static/manage_attendees.css" type="text/css">
+{% endblock %}
+
+{% block content %}
+
+    <p class="title" > Promote To Organisors </p>
+    <div class="outer-div">
+        {% for event in events %}
+
+            <div class="item" > 
+                <a class="toggle" id="toggle-btn" > </a>
+                <div class="y" id="my-div" >
+                    <section class="event-wrapper">
+                        <div class="card-grid-space">
+                          <a class="event" style="--bg-img: url({{event.image}}">
+                            <div>
+                              <h1 style="color: white;"> {{ event.name }}</h1>
+                              <p class="text" style="color: white;">{{ event.data }}</p>
+                                {% if event.capacity == 0 %}
+                                    <p class="text" > Fully Booked! </p>
+                                {% elif event.capacity <= 4 %}
+                                    <p  class="text" style="color: red;" > Only {{event.capacity}} left! </p>
+                                {% else %}
+                                    <p class="text" style="color: white;"> Event Places : {{ event.capacity }} </p>
+                                {% endif %}
+                              <div style="color: white;" class="date"> {{ event.date }} </div>
+                            </div>
+                          </a>
+                        </div>
+                      </section>
+                </div>
+                <div class="attendees-list">
+                    {% if event.attendee_events %}
+                    {% for attendee in event.attendee_events %}
+                    <div class="attendee">
+                        <p>Name: {{ attendee.name }} || Email: {{ attendee.email }} </p>
+                        {% if attendee.organisor %}
+                        <a href="{{ url_for('views.promote', attendee_id=attendee.id)}}" >
+                            <button> Already Organisor </button>
+                        </a>
+                        {% else %}
+                        <a href="{{ url_for('views.promote', attendee_id=attendee.id)}}" >
+                            <button> PROMOTE </button>
+                        </a>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+
+                    {% else %}
+                        <p style="font-size: 40px; color: white;"> No attendees for this event yet </p>
+                    {% endif %}
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+
+{% endblock %}
